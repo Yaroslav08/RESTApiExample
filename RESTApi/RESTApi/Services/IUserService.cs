@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
 namespace RESTApi.Services
 {
     public interface IUserService
@@ -11,6 +10,6 @@ namespace RESTApi.Services
         User GetUserById(string id);
         List<User> GetAllUsers();
         List<User> GetUserByName(string name);
-        User CreateUser(string id);
+        User CreateUser(User user);
     }
 }
