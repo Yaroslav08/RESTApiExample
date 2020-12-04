@@ -44,7 +44,12 @@ namespace RESTApi
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+            endpoints.MapControllers();
+                endpoints.MapGet("/", opt =>
+                {
+                    opt.Response.Redirect("api/users");
+                    return Task.CompletedTask;
+                });
             });
         }
     }
