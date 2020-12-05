@@ -13,8 +13,12 @@ namespace RESTApiLibrary
         private HttpClient httpClient;
         public RESTClient()
         {
-            httpClient = new HttpClient();
-            httpClient.BaseAddress = new Uri("https://www.localhost:5001");
+            var handler = new HttpClientHandler
+            {
+                SslProtocols = System.Security.Authentication.SslProtocols.None
+            };
+            httpClient = new HttpClient(handler);
+            httpClient.BaseAddress = new Uri("https://localhost:5001");
         }
 
         public async Task<List<User>> GetAllUsersAsync()
@@ -27,9 +31,9 @@ namespace RESTApiLibrary
             return await httpClient.GetFromJsonAsync<User>($"api/users/{id}");
         }
 
-        public async Task<User> CreateUserAsync(User user)
+        public async Task CreateUserAsync(User user)
         {
-            return await httpClient.PostAsJsonAsync<User>("api/users", user);
+            await httpClient.PostAsJsonAsync<User>("api/users", user);
         }
     }
 }
