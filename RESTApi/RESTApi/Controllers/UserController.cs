@@ -19,7 +19,7 @@ namespace RESTApi.Controllers
         }
 
         [HttpGet()]
-        public IActionResult GetAllUsers() => Ok(_userService.GetAllUsers());
+        public IActionResult GetAllUsers(Sort sort) => Ok(_userService.GetAllUsers(sort));
 
         [HttpGet("{id}")]
         public IActionResult GetUserById(string id) => Ok(_userService.GetUserById(id));

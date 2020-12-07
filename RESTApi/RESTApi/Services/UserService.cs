@@ -44,7 +44,17 @@ namespace RESTApi.Services
             return user;
         }
 
-        public List<User> GetAllUsers() => users.ToList();
+        public List<User> GetAllUsers(Sort sort = Sort.IdAsc)
+        {
+            return sort switch
+            {
+                Sort.IdAsc => users.OrderBy(d => d.Id).ToList(),
+                Sort.IdDesc => users.OrderByDescending(d => d.Id).ToList(),
+                Sort.NameAsc => users.OrderBy(d => d.Name).ToList(),
+                Sort.NameDesc => users.OrderByDescending(d => d.Name).ToList(),
+                _ => users
+            };
+        }
 
         public User GetUserById(string id) => users.FirstOrDefault(d => d.Id == id);
 

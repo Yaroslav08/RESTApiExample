@@ -8,7 +8,7 @@ namespace RESTApi.Services
     public interface IUserService
     {
         User GetUserById(string id);
-        List<User> GetAllUsers();
+        List<User> GetAllUsers(Sort sort = Sort.IdAsc);
         List<User> GetUserByName(string name);
         User CreateUser(User user);
     }

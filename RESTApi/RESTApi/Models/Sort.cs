@@ -2,7 +2,7 @@ namespace RESTApi.Models
 {
     public enum Sort
     {
-        IdAsc,
+        IdAsc = 1,
         IdDesc,
         NameAsc,
         NameDesc
