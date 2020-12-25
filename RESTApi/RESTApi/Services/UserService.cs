@@ -33,8 +33,7 @@ namespace RESTApi.Services
                 new User("Yuri"),
                 new User("Artem"),
                 new User("Paul"),
-                new User("Andrew"),
-                new User("Andrew"),
+                new User("Andrew")
             };
         }
 
