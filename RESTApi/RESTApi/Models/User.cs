@@ -9,6 +9,7 @@ namespace RESTApi.Models
         public string Id { get; set; } = Guid.NewGuid().ToString("N");
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public string Name { get; set; }
+        public List<Comment> Comments { get; set; }
 
         public User(string name) => Name = name;
     }
