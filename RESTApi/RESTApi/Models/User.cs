@@ -11,6 +11,10 @@ namespace RESTApi.Models
         public string Name { get; set; }
         public List<Comment> Comments { get; set; }
 
-        public User(string name) => Name = name;
+        public User(string name, List<Comment> comments)
+        {
+            Name = name;
+            Comments = comments;
+        }
     }
 }
